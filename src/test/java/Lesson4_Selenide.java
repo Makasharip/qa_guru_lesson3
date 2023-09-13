@@ -23,8 +23,6 @@ public class Lesson4_Selenide {
     @Test
     void SelenideTest() {
         open("https://github.com/selenide/selenide");
-
-
         $("#wiki-tab").click();
         $(byText("Soft assertions")).shouldHave(text("Soft assertions"));
         $(byText("Soft assertions")).click();
