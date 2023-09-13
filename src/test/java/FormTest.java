@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import org.checkerframework.common.aliasing.qual.MaybeLeaked;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class FormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
@@ -23,19 +24,18 @@ public class FormTest {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-
         $("#firstName").setValue("Макашарип");
         $("#lastName").setValue("Муртазалиев");
         $("#userEmail").setValue("murtazaliev@mail.com");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("7928502600");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-dropdown-container").$(byText("June")).click();
         $(".react-datepicker__year-select").selectOption("1997");
         $(".react-datepicker__day--019").click();
         $("#subjectsInput").setValue("Physics").pressEnter();
-        $(byText("Reading")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/picture.jpg"));
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#uploadPicture").uploadFromClasspath("picture.jpg");
         $("#currentAddress").setValue("Address");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
