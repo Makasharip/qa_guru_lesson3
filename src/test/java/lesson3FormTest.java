@@ -1,15 +1,12 @@
 import com.codeborne.selenide.Configuration;
-import org.checkerframework.common.aliasing.qual.MaybeLeaked;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class FormTest {
+public class lesson3FormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
