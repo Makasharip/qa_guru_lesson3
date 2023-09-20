@@ -15,7 +15,6 @@ public class Lesson3FormTest {
         Configuration.browserSize = "1920x1080";
     }
 
-
     @Test
     void fillFormTest() {
         open("https://demoqa.com/automation-practice-form");
