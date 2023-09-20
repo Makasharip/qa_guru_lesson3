@@ -1,16 +1,13 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.junit5.SoftAssertsExtension;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
-import static com.codeborne.selenide.AssertionMode.SOFT;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Lesson4_Selenide {
+public class lesson4Selenide {
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
@@ -21,7 +18,7 @@ public class Lesson4_Selenide {
     }
 
     @Test
-    void SelenideTest() {
+    void selenideTest() {
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
         $(byText("Soft assertions")).shouldHave(text("Soft assertions"));
