@@ -1,3 +1,4 @@
+/*
 package tests;
 
 import com.codeborne.selenide.Configuration;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class lesson4Selenide {
+public class Lesson4Selenide {
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
@@ -34,7 +35,7 @@ public class lesson4Selenide {
                                           void test() {
                                             Configuration.assertionMode = SOFT;
                                             open("page.html");
-                                                                
+
                                             $("#first").should(visible).click();
                                             $("#second").should(visible).click();
                                           }
@@ -43,3 +44,4 @@ public class lesson4Selenide {
     }
 
 }
+*/

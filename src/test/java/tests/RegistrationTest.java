@@ -19,16 +19,15 @@ public class RegistrationTest extends TestBase{
         registrationPage.openPage()
                     .setFirstName("Alex")
                     .setLastName("Black")
-                    .setEmail("murtazaliev@mail.com")
+                    .setEmail("mail.com")
                     .setGender("Male")
-                    .setUserNumber("Black")
-                    .setdateOfBirth("10", "05", "1999");
+                    .setUserNumber("7928502600")
+                    .setDateOfBirth("10", "05", "1999");
 
 
 
 
 
-        $("#userNumber").setValue("7928502600");
 
         $("#subjectsInput").setValue("Physics").pressEnter();
         $("#hobbiesWrapper").$(byText("Reading")).click();
