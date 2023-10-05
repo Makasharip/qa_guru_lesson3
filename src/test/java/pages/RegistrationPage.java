@@ -17,8 +17,10 @@ public class RegistrationPage {
                     firstNameInput = $("#firstName"),
                     lastNameInput = $("#lastName"),
                     genderWrapper = $("#genterWrapper"),
+                    dateOfBirthInput = $("#dateOfBirthInput"),
                     userNumberInput = $("#userNumber"),
                     userEmailInput = $("#userEmail");
+
 
     /// ACTIONS
     public RegistrationPage openPage() {
@@ -55,8 +57,8 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
-        calendar.setdate("10", "05", "1999");
+        dateOfBirthInput.click();
+        calendar.setdate(day, month, year);
         return this;
     }
 
