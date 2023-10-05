@@ -21,11 +21,12 @@ public class RegistrationPage {
                     userEmailInput = $("userEmail");
 
     /// ACTIONS
-    public RegistrationPage openPage(String value) {
-        open("https://demoqa.com/automation-practice-form");
+    public RegistrationPage openPage() {
+        open("/automation-practice-form");
+        titleLabel.shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        titleLabel.shouldHave(text("Student Registration Form"));
+
 
         return this;
     }

@@ -16,12 +16,13 @@ public class RegistrationTest extends TestBase{
     void fillFormTest() {
 
 
-        registrationPage.setFirstName("Alex")
-                .setLastName("Black")
-                .setEmail("murtazaliev@mail.com")
-                .setGender("Male")
-                .setUserNumber("Black")
-                .setdateOfBirth("10", "05", "1999");
+        registrationPage.openPage()
+                    .setFirstName("Alex")
+                    .setLastName("Black")
+                    .setEmail("murtazaliev@mail.com")
+                    .setGender("Male")
+                    .setUserNumber("Black")
+                    .setdateOfBirth("10", "05", "1999");
 
 
 
