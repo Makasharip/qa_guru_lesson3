@@ -10,3 +10,4 @@ public class CalendarComponent {
                 + ":not(.react-datepicker__day--outside-month)").click();
     }
 }
+
