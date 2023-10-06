@@ -1,7 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.Components.CalendarComponent;
+import pages.components.CalendarComponent;
+import pages.components.ResultsModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -12,6 +13,9 @@ public class RegistrationPage {
 
     CalendarComponent calendar = new CalendarComponent();
 
+    ResultsModal resultsModal = new ResultsModal();
+
+
     /// Elements
     SelenideElement titleLabel = $(".practice-form-wrapper"),
                     firstNameInput = $("#firstName"),
@@ -19,7 +23,18 @@ public class RegistrationPage {
                     genderWrapper = $("#genterWrapper"),
                     dateOfBirthInput = $("#dateOfBirthInput"),
                     userNumberInput = $("#userNumber"),
-                    userEmailInput = $("#userEmail");
+                    userEmailInput = $("#userEmail"),
+                    subjectsInput = $("#subjectsInput"),
+                    hobbies = $("#hobbiesWrapper"),
+                    pictureInput = $("#uploadPicture"),
+                    currentAddressInput = $("#currentAddress"),
+                    stateInput = $("#state"),
+                    cityInput = $("#city"),
+                    stateAndCity = $("#stateCity-wrapper"),
+                    submitButton = $("#submit");
+
+
+
 
 
     /// ACTIONS
@@ -61,10 +76,60 @@ public class RegistrationPage {
         calendar.setdate(day, month, year);
         return this;
     }
+    public RegistrationPage setSubjects(String value) {
+        subjectsInput.setValue(value).pressEnter();
 
-
-
-    public void clickFirstName() {
-        firstNameInput.click();
+        return this;
     }
+
+    public RegistrationPage setHobby(String value) {
+        hobbies.$(byText(value)).click();
+
+        return this;
+    }
+
+    public RegistrationPage uploadPicture(String value) {
+        pictureInput.uploadFromClasspath(value);
+
+        return this;
+    }
+
+    public RegistrationPage setCurrentAddress(String value) {
+        currentAddressInput.setValue(value);
+
+        return this;
+    }
+
+    public RegistrationPage setState(String value) {
+        stateInput.click();
+        stateAndCity.$(byText(value)).click();
+
+        return this;
+    }
+
+    public RegistrationPage setCity(String value) {
+        cityInput.click();
+        stateAndCity.$(byText(value)).click();
+
+        return this;
+    }
+
+    public void clickSubmit() {
+        submitButton.click();
+    }
+    public RegistrationPage verifyRegistrationResultsModalAppears() {
+        resultsModal.verifyModalAppears();
+
+        return this;
+    }
+
+
+    public RegistrationPage verifyResult(String key, String value) {
+        resultsModal.verifyResult(key, value);
+
+        return this;
+
+    }
+
+
 }
