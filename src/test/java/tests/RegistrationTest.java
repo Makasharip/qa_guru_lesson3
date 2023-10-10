@@ -1,12 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationTest extends TestBase{
 
@@ -32,6 +27,7 @@ public class RegistrationTest extends TestBase{
                     .clickSubmit();
 
         registrationPage.verifyRegistrationResultsModalAppears()
+                .checkTitle()
                 .verifyResult("Student Name", "Alex Black")
                 .verifyResult("Student Email", "sdfsdfdsfs@mail.com")
                 .verifyResult("Gender", "Male")

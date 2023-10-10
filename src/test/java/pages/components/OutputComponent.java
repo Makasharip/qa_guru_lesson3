@@ -15,9 +15,6 @@ public class OutputComponent {
         output.should(visible);
     }
 
-    public void checkHidden() {
-        output.should(visible);
-    }
 
     public void checkResult(String key, String value) {
         output.$(byText(key)).parent().shouldHave(text(value));

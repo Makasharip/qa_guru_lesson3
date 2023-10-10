@@ -51,18 +51,16 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage checkOutputHidden() {
-        output.checkHidden();
-        return this;
-    }
+
 
     public TextBoxPage checkResult(String key, String value) {
         output.checkResult(key, value);
         return this;
     }
 
-    private void removeBannersAndFooters() {
+    public void removeBannersAndFooters() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+
     }
 }

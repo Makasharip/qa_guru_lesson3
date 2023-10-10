@@ -7,7 +7,6 @@ import pages.components.ResultsModal;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
 
@@ -40,11 +39,17 @@ public class RegistrationPage {
     /// ACTIONS
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        titleLabel.shouldHave(text("Student Registration Form"));
+        removeBanner();
+        return this;
+    }
+
+    private void removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+    }
 
-
+    public RegistrationPage checkTitle() {
+        titleLabel.shouldHave(text("Student Registration Form"));
         return this;
     }
 
@@ -119,7 +124,6 @@ public class RegistrationPage {
     }
     public RegistrationPage verifyRegistrationResultsModalAppears() {
         resultsModal.verifyModalAppears();
-
         return this;
     }
 

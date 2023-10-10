@@ -18,7 +18,7 @@ public class TextBoxTests extends TestBase{
 
 
         textBoxPage.checkOutputVisible()
-                .checkResult("Name:", "Alex   Volkanovsky")
+                .checkResult("Name:", "Alex Volkanovsky")
                 .checkResult("Email:", "qwerty@mail.com" )
                 .checkResult("Current Address :", "Las Vegas")
                 .checkResult("Permananet Address :", "Texas City");
