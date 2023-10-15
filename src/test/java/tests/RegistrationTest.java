@@ -5,41 +5,40 @@ import pages.RegistrationPage;
 
 public class RegistrationTest extends TestBase{
 
-    RegistrationPage registrationPage = new RegistrationPage();
+   private final RegistrationPage registrationPage = new RegistrationPage();
+   private final RegistrationTestData rtd = new RegistrationTestData();
 
     @Test
     void fillFormTest() {
 
 
         registrationPage.openPage()
-                    .setFirstName("Alex")
-                    .setLastName("Black")
-                    .setEmail("sdfsdfdsfs@mail.com")
-                    .setGender("Male")
-                    .setUserNumber("7928502600")
-                    .setDateOfBirth("10", "July", "1999")
-                    .setSubjects("Arts")
-                    .setHobby("Sports")
-                    .uploadPicture("boris.jpg")
-                    .setCurrentAddress("Kazan")
-                    .setState("NCR")
-                    .setCity("Delhi")
-                    .clickSubmit();
+                .setFirstName(rtd.firstName)
+                .setLastName(rtd.lastName)
+                .setEmail(rtd.email)
+                .setGender(rtd.gender)
+                .setPhoneNumber(rtd.phoneNumber)
+                .setDateOfBirth(rtd.birthDay, rtd.birthMonth, rtd.birthYear)
+                .setSubjects(rtd.subjects)
+                .setHobbies(rtd.hobbies)
+                .uploadPicture(rtd.picturePath)
+                .setCurrentAddress(rtd.currentAddress)
+                .setState(rtd.state)
+                .setCity(rtd.city)
+                .clickSubmit();
 
         registrationPage.verifyRegistrationResultsModalAppears()
-                .checkTitle()
-                .verifyResult("Student Name", "Alex Black")
-                .verifyResult("Student Email", "sdfsdfdsfs@mail.com")
-                .verifyResult("Gender", "Male")
-                .verifyResult("Mobile", "7928502600")
-                .verifyResult("Date of Birth", "10 July,1999")
-                .verifyResult("Subjects", "Arts")
-                .verifyResult("Hobbies", "Sports")
-                .verifyResult("Picture", "boris.jpg")
-                .verifyResult("Address", "Kazan")
-                .verifyResult("State and City", "NCR Delhi");
-
-
+                .checkResultModalTitleHaveMessage(rtd.completeSubmitMessage)
+                .checkResult("Student Name", rtd.firstName + " " + rtd.lastName)
+                .checkResult("Student Email", rtd.email)
+                .checkResult("Gender", rtd.gender)
+                .checkResult("Mobile", rtd.phoneNumber)
+                .checkResult("Date of Birth", rtd.dateOfBirth)
+                .checkResult("Subjects", String.join(", ", rtd.subjects))
+                .checkResult("Hobbies", String.join(", ", rtd.hobbies))
+                .checkResult("Picture", rtd.pictureName)
+                .checkResult("Address", rtd.currentAddress)
+                .checkResult("State and City", rtd.state + " " + rtd.city);
     }
 }
 

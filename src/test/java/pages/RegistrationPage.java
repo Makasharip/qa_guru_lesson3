@@ -1,7 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
 import pages.components.CalendarComponent;
+import pages.components.ModalContentComponent;
 import pages.components.ResultsModal;
 
 import static com.codeborne.selenide.Condition.text;
@@ -13,6 +15,7 @@ public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
 
     ResultsModal resultsModal = new ResultsModal();
+    ModalContentComponent resultTable = new ModalContentComponent();
 
 
     /// Elements
@@ -21,10 +24,10 @@ public class RegistrationPage {
                     lastNameInput = $("#lastName"),
                     genderWrapper = $("#genterWrapper"),
                     dateOfBirthInput = $("#dateOfBirthInput"),
-                    userNumberInput = $("#userNumber"),
+                    phoneNumberInput = $("#userNumber"),
                     userEmailInput = $("#userEmail"),
                     subjectsInput = $("#subjectsInput"),
-                    hobbies = $("#hobbiesWrapper"),
+                    hobbiesWrapper = $("#hobbiesWrapper"),
                     pictureInput = $("#uploadPicture"),
                     currentAddressInput = $("#currentAddress"),
                     stateInput = $("#state"),
@@ -69,30 +72,30 @@ public class RegistrationPage {
         genderWrapper.$(byText(value)).click();
         return this;
     }
-
-
-    public RegistrationPage setUserNumber(String value) {
-        userNumberInput.setValue(value);
+    public RegistrationPage setPhoneNumber(String value) {
+        phoneNumberInput.setValue(value);
         return this;
     }
+
+
 
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
         dateOfBirthInput.click();
         calendar.setdate(day, month, year);
         return this;
     }
-    public RegistrationPage setSubjects(String value) {
-        subjectsInput.setValue(value).pressEnter();
-
+    public RegistrationPage setSubjects(String... subjects) {
+        for (String subject : subjects) {
+            subjectsInput.setValue(subject).sendKeys(Keys.ENTER);
+        }
         return this;
     }
-
-    public RegistrationPage setHobby(String value) {
-        hobbies.$(byText(value)).click();
-
+    public RegistrationPage setHobbies(String... hobbies) {
+        for (String hobby : hobbies) {
+            hobbiesWrapper.$(byText(hobby)).click();
+        }
         return this;
     }
-
     public RegistrationPage uploadPicture(String value) {
         pictureInput.uploadFromClasspath(value);
 
@@ -128,12 +131,17 @@ public class RegistrationPage {
     }
 
 
-    public RegistrationPage verifyResult(String key, String value) {
-        resultsModal.verifyResult(key, value);
-
+    public RegistrationPage checkResultModalTitleHaveMessage(String messages) {
+        resultTable.checkTitleHaveMessage(messages);
         return this;
-
     }
+
+    public RegistrationPage checkResult(String key, String value) {
+        resultTable.checkResult(key, value);
+        return this;
+    }
+
+
 
 
 }
