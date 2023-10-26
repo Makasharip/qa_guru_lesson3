@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -9,6 +10,7 @@ public class RegistrationTest extends TestBase{
    private final RegistrationTestData rtd = new RegistrationTestData();
 
     @Test
+    @Tag("OnlyTest")
     void fillFormTest() {
 
 
