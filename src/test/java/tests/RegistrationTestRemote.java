@@ -1,10 +1,24 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-public class RegistrationTest extends TestBase{
+
+@Tag("OnlyTest")
+public class RegistrationTestRemote {
+
+    @BeforeAll
+    static void beforeAll() {
+      //  Configuration.pageLoadStrategy = "eager";
+     //   Configuration.holdBrowserOpen = false;
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 10000;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+    }
 
    private final RegistrationPage registrationPage = new RegistrationPage();
    private final RegistrationTestData rtd = new RegistrationTestData();
