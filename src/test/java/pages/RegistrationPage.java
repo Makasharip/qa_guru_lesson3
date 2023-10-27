@@ -60,6 +60,8 @@ public class RegistrationPage {
         firstNameInput.setValue(value);
         return this;
     }
+
+
     public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
