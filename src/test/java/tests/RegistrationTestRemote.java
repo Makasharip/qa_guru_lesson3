@@ -1,14 +1,9 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import io.qameta.allure.Step;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
-
+import static io.qameta.allure.Allure.step;
 
 @Tag("OnlyTest")
 public class RegistrationTestRemote extends TestBase {
