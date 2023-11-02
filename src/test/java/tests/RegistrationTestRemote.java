@@ -1,11 +1,13 @@
 package tests;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import static io.qameta.allure.Allure.step;
 
 @Tag("OnlyTest")
+@Tag("property")
 public class RegistrationTestRemote extends TestBase {
 
 

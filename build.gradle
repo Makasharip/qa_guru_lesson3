@@ -57,8 +57,8 @@ task simple_test(type: Test) {
     }
 }
 
-task property_test(type: Test) {
+task halfTest_test(type: Test) {
     useJUnitPlatform {
-        includeTags("property")
+        includeTags("halfTest")
     }
 }
