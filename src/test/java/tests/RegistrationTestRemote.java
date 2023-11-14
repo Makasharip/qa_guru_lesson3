@@ -16,6 +16,7 @@ public class RegistrationTestRemote extends TestBase {
     @Test
     void fillFormTest() {
 
+
         step("Open form", () -> {
             registrationPage.openPage();});
 
