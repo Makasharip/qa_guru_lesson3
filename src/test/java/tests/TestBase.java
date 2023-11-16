@@ -10,7 +10,8 @@ import io.qameta.allure.selenide.AllureSelenide;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
+//import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static properties.TestConfiguration.applyConfig;
 
 public class TestBase {
