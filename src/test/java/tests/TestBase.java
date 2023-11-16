@@ -10,7 +10,8 @@ import io.qameta.allure.selenide.AllureSelenide;
 
 import java.util.Map;
 
-import static pages.TestConfiguration.applyConfig;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static properties.TestConfiguration.applyConfig;
 
 public class TestBase {
     @BeforeAll
@@ -33,5 +34,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        closeWebDriver();
     }
 }
