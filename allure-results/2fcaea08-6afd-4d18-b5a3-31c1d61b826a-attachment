@@ -1,0 +1,1 @@
+[2023-11-14T18:07:01.345Z] [SEVERE] https://cdn.ad.plus/player/adplus.js 412:423 Uncaught TypeError: c(...).setup is not a function
